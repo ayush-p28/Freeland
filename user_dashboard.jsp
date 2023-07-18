@@ -336,18 +336,6 @@
 
         
 
-      apply_btn.addEventListener('click',()=>{
-        console.log(amt.value);
-        // console.log(view_post_modal_title.innerHTML+"-"+view_post_modal_desc.innerHTML+"-"+view_post_modal_deadline.innerHTML+"-"+view_post_modal_date.innerHTML);
-        saveBid().then((data)=>{
-                console.log(data);
-            }).catch((error)=>{
-                console.log(error);
-            });
-            $('#view_post_modal').modal('hide');
-      });
-
-
 
       // iiiiiiiiiiiiiiiiiiiiiiiiiii
     $(document).ready(function() {

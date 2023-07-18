@@ -369,13 +369,7 @@
 
         
 
-        const fetchImages = async (cpv) => {
-            console.log("++++"+cpv);
-            let resp = await fetch('fetch_all_images.do?project_id='+cpv);
-            let result = await resp.json();
-
-            return result;
-        };
+        
 
         const allImageReq = () => {
             fetchImages(current_project.value).then((data)=>{
@@ -416,18 +410,7 @@
             }
         // }
 
-        function display1(val1){
-            console.log(val1+'hehehehe');
-            let thumb_c = document.querySelector('#thumbnail_img_'+count);
-            console.log(count+'hohohoho');
-            count++;
-            fetchImages(val1).then((data)=>{
-                console.log(data[0]+'hehehehe');
-                thumb_c.src = 'download_image.do?img_path='+data[0];
-            }).catch((err)=>{
-                console.log(err);
-            });
-        }
+       
 
         console.log("++++"+current_project.value+"~~~");
         
@@ -467,15 +450,7 @@
             });
         });
 
-        const saveProject =  async () => {
-            console.log(category_id+'ready to fire');
-            // let resp = await fetch('save_project.do?title='+class_title+'&description='+class_description+'&subcategory_id='+subcategory_id+'&ptitle='+class_ptitle+'&pdescription='+class_pdescription+'&delivery='+class_delivery+'&revisions='+class_revisions+'&price='+class_price);
-            const obj = {title: class_title, description: class_description, subcategory: {subcategoryId: subcategory_id, category: {categoryId: category_id}}, ptitle: class_ptitle, pdescription: class_pdescription,delivery: class_delivery, revisions: class_revisions, price:class_price, postStatus: {postStatusId: postStatus_id}};          
-            var str = JSON.stringify(obj);
-            let resp = await fetch('save_project.do?project_data='+encodeURIComponent(str)+'&project_id='+current_project.value);
-
-            let result = resp.text();
-            return result;
+        n result;
         }
 
         step_3_btn.addEventListener('click',()=>{
@@ -510,228 +485,9 @@
             addRemoveLinks: true
         });
 
-
-         // Category search
-        const wantCategory = async ()=>{
-            let result = await fetch('search_category.do');
-            let resp = await result.json();
-            return resp;
-        }
-        
-        category.addEventListener('click',()=>{
-            category_list.innerHTML = null;
-            category_list.classList.replace('d-none','d-block');
-            wantCategory().then((data)=>{
-                for(var st of data){
-                    let elm = document.createElement('div');
-                    elm.className = 'cat_rec';
-                    elm.innerText = st.name;
-                    // console.log(st.name+"-"+st.categoryId);
-                    elm.category_id = st.categoryId;
-                        elm.addEventListener('click', (e) => {
-                            tag.value = null;
-                            category.value = e.target.innerText;  
-                            category_id = e.target.category_id;
-                            console.log(category.value+'~'+category_id);
-                            category_list.classList.replace('d-block', 'd-none');  
-                        });
-                        category_list.append(elm);
-                }
-            }).catch((err)=>{
-                console.log(err);
-            });
-        });
-
-        // Search SubCategory
-        const citySubcategory = async () => {
-            let result = await fetch('search_subcategory.do?category_id='+category_id);   
-            let tmp = await result.json();
-            console.log(tmp);
-
-            return tmp;
-        };
-
-        subcategory.addEventListener('click', (e) => {
-            subcategory_list.innerHTML = null;
-            subcategory_list.classList.replace('d-none', 'd-block');
-                citySubcategory().then((data)=>{
-                    for(var ct of data) {
-                        console.log(ct);
-                        let elm = document.createElement('div');
-                        elm.className = 'cat_rec';
-                        elm.innerText = ct.name;
-                        elm.subcategory_id = ct.subcategoryId;
-                        elm.addEventListener('click', (e) => {
-                            subcategory.value = e.target.innerText;  
-                            subcategory_id = e.target.subcategory_id;
-                            subcategory_list.classList.replace('d-block', 'd-none');  
-                        });
-                        subcategory_list.append(elm);
-                    }
-                }).catch((err)=>{
-                    console.log(err);                    
-                });
-        });
-
-        const delete_project = async(val_id)=>{
-            let result = await fetch('delet_project.do?project_id='+val_id);   
-            console.log(result);
-            return result.text();
-        }
-
-        deletefunc = (val_id,card_id)=>{
-            delete_project(val_id).then((data)=>{
-                console.log(data+'ye data aahe');
-                let dlt_alert = document.querySelector('#dlt_alert');
-                let card_id_num = document.querySelector('#card_id_'+card_id);
-                if(data == 'true'){
-                    card_id_num.classList.add('d-none');
-                    console.log(card_id+'card---id');
-                    dlt_alert.classList.remove('d-none');
-                    setTimeout(function() {
-                        // $('#dlt_alert').fadeOut('fast');
-                    }, 2000); // <-- time in milliseconds
-                    dlt_alert.classList.add('d-none');
-                }
-            }).catch((err)={
-
-            });
-        }
-
-        display = (val)=>{
-            show_projects.classList.add('d-none');
-            create_project_div.classList.replace('d-none','d-block');
-            // console.log(val);
-            title.value = document.querySelector('#title_'+val).value;
-            description.value = document.querySelector('#description_'+val).value;
-            ptitle.value = document.querySelector('#ptitle_'+val).value;
-            pdescription.value = document.querySelector('#pdescription_'+val).value;
-            revisions.value = document.querySelector('#revisions_'+val).value;
-            delivery.value = document.querySelector('#delivery_'+val).value;
-            price.value = document.querySelector('#price_'+val).value;
-            current_project.value = document.querySelector('#project_id_'+val).value;
-            search_subcat = document.querySelector('#subcategory_id_'+val).value;
-            category_id = document.querySelector('#category_id_'+val).value;
-            // console.log(search_subcat);
-            // console.log(category_id+"-category-");
-            wantCategory().then((data)=>{
-                category.value = data[category_id].name;
-            }).catch((err)=>{
-                console.log(err);
-            })
-            citySubcategory().then((data)=>{
-                // subcategory.value = data[search_subcat].name;
-            }).catch((err)=>{
-                console.log(err);
-            });
-            // category.value = document.querySelector('#category_id_'+val).value;
-            // console.log(subcategory.value);
-            media_box.classList.add('d-none');
-            console.log("++++"+current_project.value+"~~~");
-            allImageReq(); 
-            
-            // const price = document.querySelector('#user_id_');
-            // const price = document.querySelector('#post_status_id_');
-        }
-
-        // search tags
-        const tagRequest = async () => {
-            let result = await fetch('search_tag.do?tag='+tag.value);   
-            let tmp = await result.json();
-            return tmp;
-        };
-
-        
-        const updateTags = async (tag_id) => {
-            console.log(tag_id);
-            let result = await fetch('update_project_tags.do?tag_id='+tag_id);   
-            let tmp = await result.text();
-            return tmp;
-        };
-
-        tag.addEventListener('keyup', (e) => {
-            var input = e.target.value;
-            // console.log(input);
-            if(input.length > 2) {
-                tagRequest().then((data)=>{
-                    tag_list.innerHTML = null;
-                    tag_list.classList.replace('d-none', 'd-block');
-                    for(var ct of data) {
-                        // console.log(ct);
-                    
-                        let elm = document.createElement('div');
-                        elm.className = 'cat_rec';
-                        elm.innerText = ct.name;
-                        elm.tag_id = ct.tagId;
-                        elm.addEventListener('click', (e) => {
-                            tag.value = e.target.innerText;
-                            let tagin = document.createElement('small');
-                            let tagin_btn = document.createElement('a');
-                            let tagin_span = document.createElement('p');
-                            
-                            tagin.innerText = e.target.innerText;
-                            tagin_span.innerHTML = '&times;';
-                            tagin.classList.add('alert','alert-warning','alert-dismissible','alert-link','fade','show','d-inline-block','m-1','py-1',);
-                            tagin_btn.classList.add('close');
-                            tagin_btn.setAttribute('data-dismiss','alert');
-                            tagin_span.classList.add('close','py-1','m-0');
-                            
-                            tagin_btn.append(tagin_span);
-                            tagin.append(tagin_btn);
-                            tag_box.append(tagin);
-                            tag_id = e.target.tag_id;
-                            updateTags(tag_id).then((data)=>{
-                                console.log(data);
-                            }).catch((error)=>{
-                                console.log(error);
-                            });
-                            tagin_span.addEventListener('click',()=>{
-                                // tag_array.pop(tag_id);
-                                // console.log(e.target.tag_id);
-                                // console.log(tag_array);
-                            });
-
-                            tag.value = null;
-                            tag_list.classList.replace('d-block', 'd-none');
-
-                            // console.log(tag_id);
-                            // console.log(tag_array);
-                        });
-                        tag_list.append(elm);
-                    }
-                }).catch((err)=>{
-                    console.log(err);                    
-                });
-            }
-        });
-
-        $(document).ready(function() {
-   
-   var options = {
-       autoClose: true,
-       progressBar: true,
-       enableSounds: true,
-       sounds: {
-       success: "https://res.cloudinary.com/dxfq3iotg/video/upload/v1557233524/success.mp3",
-       error: "https://res.cloudinary.com/dxfq3iotg/video/upload/v1557233524/success.mp3",
-       }, 
-   };
-   var toast = new Toasty(options);
-   toast.configure(options);
-   
-   $('#step4_btn').click(function() {
-       toast.success("Congratulations!! Project applied succesfully");
-   });
-   $('.btn-danger').click(function() {
-       toast.error("Warning!! Project Deleted succesfully");
-   });
-       
-   });
-
     </script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/08050841b9.js" crossorigin="anonymous"></script>
 </body>
 </html>

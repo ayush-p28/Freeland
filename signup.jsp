@@ -90,31 +90,7 @@
         animation-delay: -5s;
         animation-duration: 20s;
         }
-        @keyframes move-forever {
-        0% {
-        transform: translate3d(-90px,0,0);
-        }
-        100% { 
-            transform: translate3d(85px,0,0);
-        }
-        }
-        /*Shrinking for mobile*/
-        @media (max-width: 768px) {
-        .waves {
-            height:40px;
-            min-height:40px;
-        }
-        .content {
-            height:30vh;
-        }
-        h1 {
-            font-size:24px;
-        }
-        }
-        .rdocheck{ 
-            background-color: rgb(191, 229, 191);
-            border: 4px solid rgb(4, 168, 4);
-        }
+        
     </style>
 </head>
 <body>
@@ -287,46 +263,7 @@ of Simple CSS Waves-->
         let client_box = document.querySelector('#client_box');
         let free_box = document.querySelector('#free_box');
 
-        rdo_btns.addEventListener('click',()=>{
-            if(client.checked){
-                free_box.classList.remove('rdocheck');
-                client_box.classList.add('rdocheck');
-            }
-            if(free.checked){
-                client_box.classList.remove('rdocheck');
-                free_box.classList.add('rdocheck');
-            }
-            
-        });
-        join_type.addEventListener('click',()=>{
-            join_t.classList.add('d-none');
-            join_form.classList.replace('d-none','d-block');
-            if(client.checked){
-                user_type.value = 1;
-            } else{
-                user_type.value = 2;
-            }
-        });
-    
         
-        // Client Side Validation
-            // mobile verification
-            contact.addEventListener('keyup',()=> {
-                contact.classList.add('is-invalid');
-                var reg = /^[0-9]{10}$/;
-                if(reg.test(contact.value)){
-                    contact.classList.replace('is-invalid','is-valid');
-                }
-            });
-    
-            // email verification
-            email.addEventListener('keyup',(e)=> {
-                email.classList.add('is-invalid');
-                var reg = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-                if(reg.test(email.value)){
-                    email.classList.replace('is-invalid','is-valid');
-                }
-            });
     
             // password verification
             password.addEventListener('keyup',() => {
@@ -360,27 +297,7 @@ of Simple CSS Waves-->
             });
         });
     
-        // OTP sending
-        const sendOTP = async ()=>{
-            console.log(contact.value);
-            let result = await fetch('send_otp.do?contact='+contact.value);
-            return result;
-        }
-    
-        send_otp.addEventListener('click',()=>{
-            sendOTP().then((data)=>{
-                    console.log('working');
-                }).catch((err)=>{
-                    console.log('error');
-                });
-            input_otp_div.classList.replace('d-none', 'd-block');
-        });
-    
-        // form submission
-        signup_submit.addEventListener('click',()=>{
-            console.log("prashu");
-            email_alert.classList.replace('d-none','d-block');
-        });
+        
     </script>
 </body>
 </html>
