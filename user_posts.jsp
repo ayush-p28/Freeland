@@ -301,75 +301,14 @@
         <!-- <select multiple /> -->
     </div>
 
-    
-    
-    <%@ include file="footer1.jsp" %>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/toasty.js"></script>
-     
-    
     <script>
-        const category_box = document.querySelector('#category_box');
-        const category = document.querySelector('#category');
-        const category_list = document.querySelector('#category_list');
-        const subcategory_box = document.querySelector('#subcategory_box');
-        const subcategory = document.querySelector('#subcategory');
-        const subcategory_list = document.querySelector('#subcategory_list');
-        const tag = document.querySelector('#tag');
-        const tag_list = document.querySelector('#tag_list');
-        const tag_box = document.querySelector('#tag_box');
-        const create_project = document.querySelector('#create_project');
-        const image_upload = document.querySelector('#image_upload');
-        const media_box = document.querySelector('#media_box');
-        const slide_img = document.querySelector('#slide_img');
-        const img_slider = document.querySelector('#img_slider');
+        const fetchImages = async (cpv) => {
+            console.log("++++"+cpv);
+            let resp = await fetch('fetch_all_images.do?project_id='+cpv);
+            let result = await resp.json();
 
-        const step_1_btn = document.querySelector('#step_1_btn');
-        const step_2_btn = document.querySelector('#step_2_btn');
-        const step_3_btn = document.querySelector('#step_3_btn');
-        const step_3i_btn = document.querySelector('#step_3i_btn');
-        const thumbnail_img = document.querySelector('#thumbnail_img');
-        
-        const title = document.querySelector('#title');
-        const description = document.querySelector('#description');
-        const ptitle = document.querySelector('#ptitle');
-        const pdescription = document.querySelector('#pdescription');
-        const delivery = document.querySelector('#delivery');
-        const revisions = document.querySelector('#revisions');
-        const price = document.querySelector('#price');
-        const step_1 = document.querySelector('#step_1');
-        const step_2 = document.querySelector('#step_2');
-        const step_3 = document.querySelector('#step_3');
-        const project_steps = document.querySelector('#project_steps');
-        // const forExc = document.getElementsByTagName('c:forEach');
-        
-        const dtitle = document.querySelector('#dtitle');
-        const ddescription = document.querySelector('#ddescription');
-        const edit_btn = document.querySelector('.edit_btn');
-        const current_project = document.querySelector('#current_project');
-        
-        let category_id = null;
-        let subcategory_id = null;
-        let postStatus_id = 1;
-        let tag_id = null;
-
-        let class_title = null;
-        let class_description = null;
-        
-        let class_ptitle = null;
-        let class_pdescription = null;
-        let class_delivery = null;
-        let class_revisions = null;
-        let class_price = null;
-
-
-        
-        // console.log(forExc+'count val');
-
-        
-
-        
+            return result;
+        };
 
         const allImageReq = () => {
             fetchImages(current_project.value).then((data)=>{
@@ -410,84 +349,31 @@
             }
         // }
 
-       
-
-        console.log("++++"+current_project.value+"~~~");
-        
-        create_project.addEventListener('click',()=>{
-            show_projects.classList.add('d-none');
-            create_project_div.classList.replace('d-none','d-block');
-            
-            title.value = null;
-            description.value = null;
-            ptitle.value = null;
-            pdescription.value = null;
-            revisions.value = null;
-            delivery.value = null;
-            price.value = null;
-        });
-        
-        step_1_btn.addEventListener('click',()=>{
-            step_1.classList.replace('d-block','d-none');
-            step_2.classList.replace('d-none','d-block');
-            class_title = title.value
-            class_description = description.value;
-        });
-
-        step_2_btn.addEventListener('click',()=>{
-            step_2.classList.replace('d-block','d-none');
-            step_3.classList.replace('d-none','d-block');
-            class_ptitle = ptitle.value;
-            class_pdescription = pdescription.value; 
-            class_delivery = delivery.value;
-            class_revisions = revisions.value;
-            class_price = price.value;
-
-            saveProject().then((data)=>{
-                console.log(data);
-            }).catch((error)=>{
-                console.log(error);
+        function display1(val1){
+            console.log(val1+'hehehehe');
+            let thumb_c = document.querySelector('#thumbnail_img_'+count);
+            console.log(count+'hohohoho');
+            count++;
+            fetchImages(val1).then((data)=>{
+                console.log(data[0]+'hehehehe');
+                thumb_c.src = 'download_image.do?img_path='+data[0];
+            }).catch((err)=>{
+                console.log(err);
             });
-        });
-
-        n result;
         }
-
-        step_3_btn.addEventListener('click',()=>{
-            step_3.classList.replace('d-block','d-none');
-            window.location.reload();
-        });
-        step_3i_btn.addEventListener('click',()=>{
-            // step_3.classList.replace('d-block','d-none');
-            window.location.reload();
-        });
-
-        // upload_image.addEventListener()
-
-        // upload images
-        new Dropzone('#image_upload', {
-            url: 'upload_images.do',
-            uploadMultiple: true,
-            maxFilesize: 2,
-            acceptedFiles: 'image/jpg,image/jpeg,image/png',
-            autoProcessQueue: true,
-            addRemoveLinks: true
-        });
-        
-        
-        // video upload
-        new Dropzone('#video_upload', {
-            url: 'upload_video.do',
-            uploadMultiple: true,
-            maxFilesize: 1,
-            acceptedFiles: 'image/mp4',
-            autoProcessQueue: true,
-            addRemoveLinks: true
-        });
-
     </script>
+    <script type="text/javascript" src="static/js/user_posts.js"></script>
+    
+    
+    
+    <%@ include file="footer1.jsp" %>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/toasty.js"></script>
+     
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/08050841b9.js" crossorigin="anonymous"></script>
 </body>
 </html>

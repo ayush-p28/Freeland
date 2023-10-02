@@ -7,208 +7,90 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <title>Document</title>
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>Home</title>
+        <link rel="stylesheet" href="static/css/index.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://kit.fontawesome.com/08050841b9.js" crossorigin="anonymous"></script>
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
             integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-        <style>
-            .btn-indigo {
-                background-color: #6610f2;
-            }
-
-            .bg-color {
-                background-color: #1A252F;
-            }
-
-            #cd-title {
-                /* font-size:4vw; */
-
-            }
-
-            #banner-bg {
-                margin-top: -70px;
-            }
-
-            .bb {
-                /* border: 3px solid red; */
-                height: 40px;
-            }
-
-            .freelancer-heading {
-                font-size: 30px;
-                background: linear-gradient(to right, #AA076B 0%, #61045F 51%, #AA076B 100%);
-            }
-
-            #banner-bg {
-                font: 1em/1.618 Inter, sans-serif;
-
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                /* margin-bottom: 20px; */
-
-                min-height: 90vh;
-                /* height: 800px; */
-                /* padding: 30px; */
-
-                color: #224;
-                background:
-                    /* url(https://source.unsplash.com/E8Ufcyxz514/2400x1823) */
-                    url(static/images/index-bn.jpeg) center / cover no-repeat;
-            }
-
-            .card1 {
-                /* max-width: 1140px; */
-                /* min-height: 200px; */
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-
-                /* max-width: 1140px; */
-                /* height: 400px; */
-                padding: 35px;
-
-                border: 1px solid rgba(255, 255, 255, .25);
-                border-radius: 20px;
-                background-color: rgba(255, 255, 255, 0.45);
-                box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-
-                backdrop-filter: blur(15px);
-            }
-
-
-
-            .profile-card-2 {
-                /* max-width: 300px; */
-
-                background-color: #FFF;
-                box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
-                background-position: center;
-                overflow: hidden;
-                position: relative;
-                margin: 10px auto;
-                cursor: pointer;
-                border-radius: 10px;
-            }
-
-            .profile-card-2 img {
-                object-fit: cover;
-                /* height: 345px; */
-                width: 100%;
-                transition: all linear 0.25s;
-            }
-
-            .profile-card-2:hover img {
-                transform: rotate(5deg) scale(1.1, 1.1);
-                filter: brightness(110%);
-            }
-
-            .profile-name {
-                position: absolute;
-                left: 30px;
-                top: 50px;
-                font-size: 30px;
-                color: #FFF;
-                text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-                font-weight: bold;
-                transition: all linear 0.25s;
-            }
-
-            .profile-name-2 {
-                position: absolute;
-                left: 30px;
-                top: 30px;
-                font-size: 20px;
-                color: #FFF;
-                text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-                /* font-weight: bold; */
-                transition: all linear 0.25s;
-            }
-        </style>
     </head>
 
     <body>
         <%@ include file="header1.jsp" %>
 
-            <div class='alert alert-primary alert-dismissible fade show d-none' role='alert' id='email_alert'>
-                <strong>Activate Email!</strong> account created successfully check your mail.
-                <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-                    <span aria-hidden='true'>&times;</span>
-                </button>
-            </div>
+        <div class='alert alert-primary alert-dismissible fade show d-none' role='alert' id='email_alert'>
+            <strong>Activate Email!</strong> account created successfully check your mail.
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                <span aria-hidden='true'>&times;</span>
+            </button>
+        </div>
 
 
-            <div class="container-fluid mt-5">
-                <div class="row" id="banner-bg">
-                    <div class="card1 m-5 col-md-10">
-                        <div class="row">
-                            <div class="col-md-5">
-                                <p class="h2 pl-2 font-weight-bold text-uppercase">Hire Top <br>
-                                <h2
-                                    class="btn btn-lg freelancer-heading text-white font-weight-bold px-5 text-uppercase">
-                                    Freelancers</h2>
-                                </p>
-                                <p class="mb-4">Access the top 1% of talent on <strong>FreeWala</strong>, and a full
-                                    suite of hybrid workforce management tools. This is how innovation works now.</p>
-                                <div class="btn btn-outline-dark btn-lg mt-1">Get Started</div>
-                            </div>
-                            <div class="col-md-1"></div>
-                            <div class="col-md-5 order-first order-md-last pb-4 pb-md-0 d-md-block">
-                                <!-- <img src="static/images/Picture1.png" height="400px" alt=""> -->
-                                <!-- <img src="static/images/output-onlinegiftools.gif" height="400px" alt=""> -->
-                                <img src="static/images/banner_img.gif" class="img-fluid" style="border-radius: 20px;"
-                                    alt="">
-                            </div>
+        <div class="container-fluid mt-5">
+            <div class="row" id="banner-bg">
+                <div class="card1 m-5 p-5 col-md-10">
+                    <div class="row">
+                        <div class="col-md-5" id="brand_heading">
+                            <p class="h2 pl-2 font-weight-bold text-uppercase">Hire Top <br>
+                            <h2
+                                class="btn btn-lg freelancer-heading text-white font-weight-bold px-5 text-uppercase">
+                                Freelancers</h2>
+                            </p>
+                            <p class="mb-4">Access the top 1% of talent on <strong>FreeWala</strong>, and a full
+                                suite of hybrid workforce management tools. This is how innovation works now.</p>
+                            <div class="btn btn-outline-dark btn-lg mt-1">Get Started</div>
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-5 order-first order-md-last pb-4 pb-md-0 d-md-block">
+                            <img src="static/images/banner_img.gif" class="img-fluid" style="border-radius: 20px;"
+                                alt="">
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <section class="pt-4">
-                <div class="container px-lg-5">
-                    <h4 class="text-center"><strong>Popular professional services</strong></h4>
-                    <hr>
-                    <div class="row gx-lg-5">
-                        <div class="col-md-3">
-                            <div class="profile-card-2"><img
-                                    src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_2.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741678/logo-design-2x.png"
-                                    class="img img-responsive">
-                                <div class="profile-name-2">Build Your Brand</div>
-                                <div class="profile-name uppercase">Logo design</div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="profile-card-2"><img
-                                    src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_2.0/v1/attachments/generic_asset/asset/ae11e2d45410b0eded7fba0e46b09dbd-1598561917003/wordpress-2x.png"
-                                    class="img img-responsive">
-                                <div class="profile-name-2">Customize Your Site</div>
-                                <div class="profile-name uppercase">Web design</div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="profile-card-2"><img
-                                    src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_2.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741663/animated-explainer-2x.png"
-                                    class="img img-responsive">
-                                <div class="profile-name-2">Colour Your Dreams</div>
-                                <div class="profile-name uppercase">Illustration</div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="profile-card-2"><img
-                                    src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_2.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741678/book-covers-2x.png"
-                                    class="img img-responsive">
-                                <div class="profile-name-2">Showcase Your Story</div>
-                                <div class="profile-name uppercase">Book Covers</div>
-                            </div>
+        <section class="pt-4">
+            <div class="container px-lg-5">
+                <h4 class="text-center"><strong>Popular professional services</strong></h4>
+                <hr>
+                <div class="row gx-lg-5">
+                    <div class="col-md-3">
+                        <div class="profile-card-2"><img
+                                src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_2.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741678/logo-design-2x.png"
+                                class="img img-responsive">
+                            <div class="profile-name-2">Build Your Brand</div>
+                            <div class="profile-name uppercase">Logo design</div>
                         </div>
                     </div>
-                    <!-- <div class="row gx-lg-5"> -->
-                    <!-- </div> -->
+                    <div class="col-md-3">
+                        <div class="profile-card-2"><img
+                                src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_2.0/v1/attachments/generic_asset/asset/ae11e2d45410b0eded7fba0e46b09dbd-1598561917003/wordpress-2x.png"
+                                class="img img-responsive">
+                            <div class="profile-name-2">Customize Your Site</div>
+                            <div class="profile-name uppercase">Web design</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="profile-card-2"><img
+                                src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_2.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741663/animated-explainer-2x.png"
+                                class="img img-responsive">
+                            <div class="profile-name-2">Colour Your Dreams</div>
+                            <div class="profile-name uppercase">Illustration</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="profile-card-2"><img
+                                src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_2.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741678/book-covers-2x.png"
+                                class="img img-responsive">
+                            <div class="profile-name-2">Showcase Your Story</div>
+                            <div class="profile-name uppercase">Book Covers</div>
+                        </div>
+                    </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
 
             <section class="pt-4">
@@ -308,8 +190,6 @@
                         <div class="col-lg-4 col-xxl-4 mb-4">
                             <div class="card bg-light border-0 h-100">
                                 <div class="card-body text-center  p-4 p-lg-5 py-2 pt-lg-0">
-                                    <!-- <div class="d-inline-flex p-4 justify-content-center align-items-center bg-primary bg-gradient text-white border border-secondary rounded-lg"
-                                        ><i class="fa-regular fa-object-group" style="font-size: 30px;"></i></div> -->
                                     <h2 class="fs-4 fw-bold">Fresh Easy Layout</h2>
                                     <p class="mb-0">Lorem ipsum dolor sinatus quod sunt repudiandae, dolores dicta? Non,
                                         natus? Sequi quae eum non soluta.</p>
@@ -319,8 +199,6 @@
                         <div class="col-lg-4 col-xxl-4 mb-4">
                             <div class="card bg-light border-0 h-100">
                                 <div class="card-body text-center  p-2 p-lg-5 py-2 pt-lg-0">
-                                    <!-- <div class="d-inline-flex p-4 justify-content-center align-items-center bg-primary bg-gradient text-white border border-secondary rounded-lg"
-                                        ><i class="fa-solid fa-code" style="font-size: 30px;"></i></div> -->
                                     <h2 class="fs-4 fw-bold">Simple Clean Code</h2>
                                     <p class="mb-0">Lorem ipsum dolor sinatus quod sunt repudiandae, dolores dicta? Non,
                                         natus? Sequi quae eum non soluta.</p>

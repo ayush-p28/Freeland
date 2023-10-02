@@ -33,7 +33,9 @@ public class SaveUserServlet extends HttpServlet {
             user.setAboutMe(about);
 
             flag = true;
-        } 
+        }else{
+            response.sendRedirect("static/html/chor.html");
+        }
 
         response.getWriter().print(flag);
     }

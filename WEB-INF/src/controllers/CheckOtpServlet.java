@@ -16,20 +16,24 @@ public class CheckOtpServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         // Session
         HttpSession session = request.getSession();
-        
-        // Parameters
-        String otp = request.getParameter("otp");
-
         User user = (User)session.getAttribute("user");
-
-        System.out.println("yaha bhi sahi hai"+otp+"user wala"+user.getOtp());
-
-        String resp = "false";
-
-        if(otp.equals(user.getOtp())) {
-            resp = "true";
+        
+        if(user!=null){
+            // Parameters
+            String otp = request.getParameter("otp");
+    
+            System.out.println("yaha bhi sahi hai"+otp+"user wala"+user.getOtp());
+    
+            String resp = "false";
+    
+            if(otp.equals(user.getOtp())) {
+                resp = "true";
+            }
+    
+            response.getWriter().write(resp);
+        }else{
+            response.sendRedirect("static/html/chor.html");
         }
-
-        response.getWriter().write(resp);
     }
 }
+

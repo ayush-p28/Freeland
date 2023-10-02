@@ -1,0 +1,46 @@
+nav .btn-indigo{
+    background-color: #6610f2;
+}
+
+.bg-color {
+    background-color: #1A252F;
+}
+#state_list {
+    position: absolute;
+    top: 68px;
+    left: 13px;
+    z-index: 1;
+    height: 200px;
+    border: 2px solid #999;
+    background-color: white;
+}
+
+#state_box {
+    position: relative;
+}
+
+#city_list {
+    position: absolute;
+    top: 68px;
+    left: 40px;
+    z-index: 1;
+    height: 200px;
+    border: 2px solid #999;
+    background-color: white;
+}
+
+#ct_box {
+    position: relative;
+}
+
+.st_rec {
+    font-size: 15px;
+    /* font-weight: bold; */
+    font-family: verdana;
+    padding: 6px 15px;
+    cursor: pointer; 
+}
+
+.st_rec:hover {
+    background-color: #eee;
+}

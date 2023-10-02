@@ -34,6 +34,8 @@ public class UploadLogoServlet extends HttpServlet {
             boolean flag = user.saveUser();
             System.out.println(flag);
             System.out.println("save called-2");
-        } 
+        }else{
+            response.sendRedirect("static/html/chor.html");
+        }
     }
 }

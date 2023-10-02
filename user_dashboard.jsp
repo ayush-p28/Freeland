@@ -6,7 +6,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Document</title>
+    <title>DashBoard</title>
+    <link rel="stylesheet" href="static/css/user_dashboard.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/08050841b9.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
@@ -15,66 +17,7 @@
     
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
     
-    <style>
-      .btn-indigo{
-            background-color: #6610f2;
-        }
-      .bg-color{
-          background-color: #1A252F;
-      }
-      .card .card-statistic-3 .card-icon-large .fas, .card .card-statistic-3 .card-icon-large .far, .card .card-statistic-3 .card-icon-large .fab, .card .card-statistic-3 .card-icon-large .fal {
-            font-size: 110px;
-        }
-      .card .card-statistic-3 .card-icon {
-          -webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
-          box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
-          text-align: center;
-          line-height: 50px;
-          margin-left: 15px;
-          color: #000;
-          position: absolute;
-          right: 0px;
-          top: 20px;
-          opacity: 0.1;
-        }
-      .l-bg-cherry {
-            background: linear-gradient(45deg,#FF5370,#ff869a);
-            color: #fff;
-        }
-      .bg-c-blue {
-            background: linear-gradient(45deg,#4099ff,#73b4ff);
-            color: #fff;
-        }
-
-      .bg-c-green {
-            background: linear-gradient(45deg,#2ed8b6,#59e0c5);
-            color: #fff;
-        }
-
-      .bg-c-yellow {
-            background: linear-gradient(45deg,#FFB64D,#ffcb80);
-            color: #fff;
-        }
-      .mini_desc{
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          max-width: 700px;
-        }
-
-        .container{margin-top: 100px}
-        .toast{transition: 0.32s all ease-in-out}
-        .toast-container--fade{right: 0;top: 0}
-        .toast-container--fade 
-        .toast-wrapper{display: inline-block}
-        .toast
-        .fade-init{opacity: 0}
-        .toast
-        .fade-show{opacity: 1}
-        .toast
-        .fade-hide{opacity: 0}
-        
-    </style>
+  
 </head>
 <body>
     <%@ include file="header1.jsp" %>
@@ -292,72 +235,7 @@
     
     <%@ include file="footer1.jsp" %>
 
-    <script>
-      const view_post_modal = document.querySelector('#view_post_modal');
-      const apply_btn = document.querySelector('#apply_btn');
-
-      const view_post_modal_date = document.querySelector('#view_post_modal_date');
-      const view_post_modal_title = document.querySelector('#view_post_modal_title');
-      const view_post_modal_desc = document.querySelector('#view_post_modal_desc');
-      const view_post_modal_tags = document.querySelector('#view_post_modal_tags');
-      const view_post_modal_deadline = document.querySelector('#view_post_modal_deadline');
-      let amt = document.querySelector('#amt');
-
-      let post_id = null;
-      let freelancer_id = null;
-      let bid_amount = null;
-      
-      function view(pst_id) {
-        const subcategory_id = document.querySelector('#subcategory_id_'+pst_id).value;
-        const category_id_ = document.querySelector('#category_id_'+pst_id).value;
-        const client_id = document.querySelector('#user_id_'+pst_id).value;
-        post_id = document.querySelector('#post_id_'+pst_id).value;
-        freelancer_id = document.querySelector('#freelancer_id').value;
-        
-        view_post_modal_title.innerHTML = document.querySelector('#name_'+pst_id).value;
-        view_post_modal_desc.innerHTML = document.querySelector('#description_'+pst_id).value;
-        view_post_modal_deadline.innerHTML = document.querySelector('#deadline_'+pst_id).value;
-        view_post_modal_date.innerHTML = document.querySelector('#date_'+pst_id).value;
-
-        $('#view_post_modal').modal('show');
-      }
-
-      const saveBid =  async () => {
-            console.log('ready to fireeeeeeeeeeeeeeeeeeeee');
-            console.log(amt.value+post_id+freelancer_id);
-            // let resp = await fetch('save_project.do?title='+class_title+'&description='+class_description+'&subcategory_id='+subcategory_id+'&ptitle='+class_ptitle+'&pdescription='+class_pdescription+'&delivery='+class_delivery+'&revisions='+class_revisions+'&price='+class_price);
-            const obj = {bidAmount: amt.value, post: {postId: post_id}, user: {userId: freelancer_id}};        
-            var str = JSON.stringify(obj);
-            let resp = await fetch('save_bid.do?bid_data='+encodeURIComponent(str));
-
-            let result = resp.text();
-            return result;
-        }
-
-        
-
-
-      // iiiiiiiiiiiiiiiiiiiiiiiiiii
-    $(document).ready(function() {
-   
-      var options = {
-        autoClose: true,
-        progressBar: true,
-        enableSounds: true,
-        sounds: {
-          success: "https://res.cloudinary.com/dxfq3iotg/video/upload/v1557233524/success.mp3",
-          }, 
-      };
-      var toast = new Toasty(options);
-      toast.configure(options);
-      
-      $('#apply_btn').click(function() {
-          toast.success("Congratulations!! Bidding applied succesfully");
-      });
-       
-    });
-    
-    </script>
+    <script src="static/js/user_dashboard.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

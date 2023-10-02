@@ -62,6 +62,8 @@ public class SavePostServlet extends HttpServlet {
             
             System.out.println("save post");
             // Project project = new Project(new User(user.getUserId()), new Subcategory(subcategoryId), new PostStatus(1), title, description, ptitle, pdescription, delivery, revisions, price);
+        }else{
+            response.sendRedirect("static/html/chor.html");
         }
         response.getWriter().write("chal r h post");
     }    

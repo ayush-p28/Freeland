@@ -44,9 +44,21 @@
         const mobile_otp_block = document.querySelector('#mobile_otp_block');
         const email_otp_block = document.querySelector('#email_otp_block');
 
-        
+        const checkOTP = async () => {
+            let result = await fetch('check_otp.do?otp='+otp.value);
+            return result.text();
+        };
 
-        
+        otp_btn.addEventListener('click', () => {
+            checkOTP().then((data)=>{
+                if(data == 'true') {
+                    mobile_otp_block.classList.add('d-none');
+                    email_otp_block.classList.replace('d-none', 'd-block');
+                }
+            }).catch((err)=>{
+                console.log(err);
+            });
+        });
     </script>
 </body>
 </html>

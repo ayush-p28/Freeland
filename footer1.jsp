@@ -3,12 +3,16 @@
         <div class="container">
             <div class="row">
                 
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <h3 class="text-uppercase mb-4">Location</h3>
+                <div class="col-lg-4 mb-lg-0">
+                    <h3 class="text-uppercase">Pages</h3>
                     <p class="lead mb-0">
-                        2215 John Daniel Drive
+                        <a href="../html/Privacy.html" class="text-reset">Privacy Policy</a>
                         <br />
-                        Clark, MO 65243
+                        <a href="../html/About.html" class="text-reset">About Us</a>
+                        <br />
+                        <a href="../html/Contatc.html" class="text-reset">Contact Us</a>
+                        <br />
+                        <a href="../html/Disclaimer.html" class="text-reset">Disclaimer</a>
                     </p>
                 </div>
                 

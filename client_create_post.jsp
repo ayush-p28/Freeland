@@ -189,5 +189,6 @@
         </div>
     </div>
 
+    <script src="static/js/client_create_post.js"></script>
 </body>
 </html>

@@ -2,7 +2,9 @@
 
 <!-- Header -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-color shadow sticky-top py-2" id="mainNav">
-    <a href="#" class="navbar-brand text-uppercase font-weight-bold">
+    <input type="hidden" id="logon" value="${user.logo}">
+
+    <a href="/index.jsp" class="navbar-brand text-uppercase font-weight-bold">
         <img src="static/images/logo.png" height="50" alt="" class="mr-1">
         
     </a>
@@ -14,7 +16,7 @@
     <div class="collapse navbar-collapse" id="header_options">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a href="http://localhost:8080/FreeLand/index.jsp" class="nav-link text-uppercase font-weight-bold">Home</a>
+                <a href="/index.jsp" class="nav-link text-uppercase font-weight-bold">Home</a>
             </li>
             <c:choose>
                 <c:when test="${user.userType.userTypeId == 2}">
@@ -55,7 +57,8 @@
                 <a href="login.jsp" class="btn btn-indigo text-white mr-2"><i class="fa-solid fa-right-to-bracket"></i> SignIn</a>
             </c:when>
             <c:otherwise>
-                <a href="signout.do" class="btn btn-indigo text-white mr-2"><i class="fa-solid fa-right-from-bracket"></i>&nbsp;Sign-Out</a>
+                <a href="signout.do" class="btn btn-indigo text-white mr-3"><i class="fa-solid fa-right-from-bracket"></i>&nbsp;Sign-Out</a>
+                <a href="profile.jsp" class="mr-2"><img src="" alt="" height="38px" id="avat" style="border-radius:50%"></a>
             </c:otherwise>
         </c:choose>
     </div>
@@ -63,7 +66,8 @@
 
 <script>
     console.log("${user.userType.userTypeId}"+"boroplus");
+
+    const user_id = document.querySelector('#logon').value;
+    const avat = document.querySelector('#avat');
+    avat.src = 'download_image.do?img_path='+user_id;
 </script>
-
-
-

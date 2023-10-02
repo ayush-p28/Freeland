@@ -31,7 +31,9 @@ public class UploadProjectImagesServlet extends HttpServlet {
             String fileNames = FileUpload.uploadFile(request, uploadPath);
             
             ProjectImage.saveProjectImage(fileNames, imageFolderPath, projectNumber);
-        } 
+        }else{
+            response.sendRedirect("static/html/chor.html");
+        }
     }
 }
 

@@ -27,7 +27,6 @@ public class SaveBidServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         // Session
         HttpSession session = request.getSession();
-
         User user = (User)session.getAttribute("user");
 
         System.out.println("save called");
@@ -46,6 +45,8 @@ public class SaveBidServlet extends HttpServlet {
             bid.saveBid();
         
             System.out.println("save post");
+        }else{
+            response.sendRedirect("static/html/chor.html");
         }
         response.getWriter().write("chal r h post");
     }    

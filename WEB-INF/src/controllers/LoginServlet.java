@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import models.FreelancerSkill;
 import models.Post;
 import models.User;
 
@@ -38,18 +39,31 @@ public class LoginServlet extends HttpServlet {
                             nextPage = "client_dashboard.jsp";
                             System.out.println(nextPage);
                             break;
-                        case 2: ArrayList<Post> free_posts = Post.collectFreeUserPosts();
+                        case 2: ArrayList<Post> free_posts = new ArrayList<Post>();
+                                ArrayList<String> all_skillz = FreelancerSkill.collectAllSkills();
+
+                            for(String aSkill: all_skillz){
+                                System.out.println(aSkill);
+                                free_posts = Post.collectFreeUserPosts(aSkill);
+                            }
                             request.setAttribute("free_posts", free_posts);
                             nextPage = "user_dashboard.jsp";
                             System.out.println(nextPage);
                             break;
                         default: 
+                        // case 2: ArrayList<Post> free_posts = Post.collectFreeUserPosts();
+                        //     request.setAttribute("free_posts", free_posts);
+                        //     nextPage = "user_dashboard.jsp";
+                        //     System.out.println(nextPage);
+                        //     break;
+                        // default: 
                     }
                 break;
             case 2:
                 break;
             default: 
         }
+
         request.getRequestDispatcher(nextPage).forward(request, response);
     }
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

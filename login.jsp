@@ -7,110 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Document</title>
+    <link rel="stylesheet" href="static/css/login.css">
     <script src="https://kit.fontawesome.com/08050841b9.js" crossorigin="anonymous"></script>
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <style>
-        @import url(//fonts.googleapis.com/css?family=Lato:300:400);
-
-        body {
-        margin:0;
-        }
-        .bg-color{
-            background-color: #1A252F;
-        }
-
-        /* #modal_signin{
-            position: relative;
-            top: 50%;
-            left: 50%;
-            z-index: 1;
-            
-        } */
-
-        h1 {
-        font-family: 'Lato', sans-serif;
-        font-weight:300;
-        letter-spacing: 2px;
-        font-size:48px;
-        }
-        p {
-        font-family: 'Lato', sans-serif;
-        letter-spacing: 1px;
-        font-size:14px;
-        color: #333333;
-        }
-
-        .header {
-        position:relative;
-        text-align:center;
-        background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);
-        color:white;
-        }
-        .logo {
-        width:50px;
-        fill:white;
-        padding-right:15px;
-        display:inline-block;
-        vertical-align: middle;
-        }
-
-        .inner-header {
-        height:65vh;
-        width:100%;
-        margin: 0;
-        padding: 0;
-        }
-
-        .flex { /*Flexbox for containers*/
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        }
-
-        .waves {
-        position:relative;
-        width: 100%;
-        height:15vh;
-        margin-bottom:-7px; /*Fix for safari gap*/
-        min-height:100px;
-        max-height:150px;
-        }
-
-        .content {
-        position:relative;
-        height:20vh;
-        text-align:center;
-        background-color: white;
-        }
-
-        /* Animation */
-
-        .parallax > use {
-        animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
-        }
-        
-        /*Shrinking for mobile*/
-        @media (max-width: 768px) {
-        .waves {
-            height:40px;
-            min-height:40px;
-        }
-        .content {
-            height:30vh;
-        }
-        h1 {
-            font-size:24px;
-        }
-        }
-    </style>
 </head>
 <body>
     <%@ include file="header1.jsp" %>
 
-    <!--Hey! This is the original version
-of Simple CSS Waves-->
 
 <div class="header">
 
@@ -119,7 +22,7 @@ of Simple CSS Waves-->
         
     
             <div class="row mt-5">
-                <div class="card shadow px-5 pb-5 mb-3 text-dark mt-5" style="border-radius: 1rem;" id="modal_signin">
+                <div class="card shadow px-5 pb-5 mb-3 text-dark mt-5 border border-dark" style="border-radius: 1rem;" id="modal_signin">
                     <form action="login.do" method="post">
                         <h2 class="font-weight-bold">SigIn</h2>
 
@@ -161,7 +64,9 @@ of Simple CSS Waves-->
     <div>
     <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
     viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-    
+    <defs>
+    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+    </defs>
     <g class="parallax">
     <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
     <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />

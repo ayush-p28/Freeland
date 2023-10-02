@@ -81,7 +81,7 @@ public static ArrayList<Post> collectUserPosts(Integer userId) {
     return posts;
 }
 
-public static ArrayList<Post> collectFreeUserPosts() {
+public static ArrayList<Post> collectFreeUserPosts(String aSkill) {
     // System.out.println(userId);
     ArrayList<Post> posts = new ArrayList<Post>();
     
@@ -89,10 +89,11 @@ public static ArrayList<Post> collectFreeUserPosts() {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/free_db?user=root&password=1234");
         
-        String query = "select * from posts as pr inner join subcategories as ct where pr.subcategory_id=ct.subcategory_id";
+        // String query = "select * from posts as pr inner join subcategories as ct where pr.subcategory_id=ct.subcategory_id";
+        String query = "SELECT * FROM posts INNER JOIN subcategories ON posts.subcategory_id = subcategories.subcategory_id INNER JOIN post_tags ON posts.post_id = post_tags.post_id INNER JOIN tags ON post_tags.tag_id=tags.tag_id WHERE tags.name = ?";
                         
         PreparedStatement ps = con.prepareStatement(query);
-        // ps.setInt(1, userId);
+        ps.setString(1, aSkill);
 
         ResultSet rs = ps.executeQuery();
 

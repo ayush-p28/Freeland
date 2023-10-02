@@ -36,6 +36,10 @@ public class DeleteProjectServlet extends HttpServlet{
             
             System.out.println("delete pro ended");
             response.getWriter().write(resp);
+        }else{
+            response.sendRedirect("static/html/chor.html");
         }
     }
 }
+
+

@@ -1,0 +1,57 @@
+nav .btn-indigo{
+    background-color: #6610f2;
+}
+.bg-color{
+  background-color: #1A252F;
+}
+.card .card-statistic-3 .card-icon-large .fas, .card .card-statistic-3 .card-icon-large .far, .card .card-statistic-3 .card-icon-large .fab, .card .card-statistic-3 .card-icon-large .fal {
+    font-size: 110px;
+}
+.card .card-statistic-3 .card-icon {
+  -webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
+  box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
+  text-align: center;
+  line-height: 50px;
+  margin-left: 15px;
+  color: #000;
+  position: absolute;
+  right: 0px;
+  top: 20px;
+  opacity: 0.1;
+}
+.l-bg-cherry {
+    background: linear-gradient(45deg,#FF5370,#ff869a);
+    color: #fff;
+}
+.bg-c-blue {
+    background: linear-gradient(45deg,#4099ff,#73b4ff);
+    color: #fff;
+}
+
+.bg-c-green {
+    background: linear-gradient(45deg,#2ed8b6,#59e0c5);
+    color: #fff;
+}
+
+.bg-c-yellow {
+    background: linear-gradient(45deg,#FFB64D,#ffcb80);
+    color: #fff;
+}
+.mini_desc{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 700px;
+}
+
+.container{margin-top: 100px}
+.toast{transition: 0.32s all ease-in-out}
+.toast-container--fade{right: 0;top: 0}
+.toast-container--fade 
+.toast-wrapper{display: inline-block}
+.toast
+.fade-init{opacity: 0}
+.toast
+.fade-show{opacity: 1}
+.toast
+.fade-hide{opacity: 0}

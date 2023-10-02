@@ -28,7 +28,9 @@ public class UserProjectServlet extends HttpServlet{
             request.setAttribute("projects", projects);
 
             nextPage = "user_posts.jsp";
-        }      
+        }else{
+            response.sendRedirect("static/html/chor.html");
+        }   
         request.getRequestDispatcher(nextPage).forward(request, response); 
     }
 }

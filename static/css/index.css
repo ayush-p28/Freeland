@@ -1,0 +1,104 @@
+nav .btn-indigo {
+    background-color: #6610f2;
+}
+
+.bg-color {
+    background-color: #1A252F;
+}
+
+#banner-bg {
+    margin-top: -70px;
+}
+
+.bb {
+    /* border: 3px solid red; */
+    height: 40px;
+}
+
+.freelancer-heading {
+    /* font-size: 160px; */
+    background: linear-gradient(to right, #AA076B 0%, #61045F 51%, #AA076B 100%);
+}
+
+#brand_heading h2{
+    font-size: 30px;
+
+}
+
+#banner-bg {
+    font: 1em/1.618 Inter, sans-serif;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin-bottom: 20px; */
+
+    min-height: 90vh;
+    color: #224;
+    background:
+        /* url(https://source.unsplash.com/E8Ufcyxz514/2400x1823) */
+        url(../images/index-bn.jpeg) center / cover no-repeat;
+}
+
+.card1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* padding: 75px; */
+
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+
+    backdrop-filter: blur(15px);
+}
+
+
+
+.profile-card-2 {
+    /* max-width: 300px; */
+
+    background-color: #FFF;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+    background-position: center;
+    overflow: hidden;
+    position: relative;
+    margin: 10px auto;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.profile-card-2 img {
+    object-fit: cover;
+    /* height: 345px; */
+    width: 100%;
+    transition: all linear 0.25s;
+}
+
+.profile-card-2:hover img {
+    transform: rotate(5deg) scale(1.1, 1.1);
+    filter: brightness(110%);
+}
+
+.profile-name {
+    position: absolute;
+    left: 30px;
+    top: 50px;
+    font-size: 30px;
+    color: #FFF;
+    text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    transition: all linear 0.25s;
+}
+
+.profile-name-2 {
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    font-size: 20px;
+    color: #FFF;
+    text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    /* font-weight: bold; */
+    transition: all linear 0.25s;
+}
