@@ -41,9 +41,3 @@ public class EmailSender {
     }
 }
 
-
-class MailAuthenticator extends Authenticator {
-    public PasswordAuthentication getPasswordAuthentication() {
-        return new PasswordAuthentication("ayushkachhip28@outlook.com", "Pranav@123");
-    }
-}
