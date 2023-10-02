@@ -28,7 +28,6 @@ public class EmailSender {
         MimeMessage message = new MimeMessage(session);
 
         try {
-            message.setFrom("ayushkachhip28@outlook.com");
             message.setRecipients(Message.RecipientType.TO, to);
             message.setSubject(subject);
             message.setContent(msg, "text/html");
